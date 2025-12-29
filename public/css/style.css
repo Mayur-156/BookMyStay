@@ -1,88 +1,279 @@
-body{
+/* --- Global Styles --- */
+body {
   font-family: "Plus Jakarta Sans", sans-serif !important;
-  
+  background-color: #ffffff;
+  color: #222222;
 }
-.navbar{
-    height: 5rem;
-    background-color: white;
-    
+
+.navbar {
+  height: 5rem;
+  background-color: white;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.08); /* Adds a premium feel */
 }
 
 .nav-link {
-    color:#222222 !important;
+  color: #222222 !important;
+  font-weight: 500;
 }
 
-/*footer */
-
-.f-info {
-    background-color: #ebebeb;
-    height: 160px;
-    display: flex;
-    flex-direction: column;  /* ✅ Vertical */
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
+/* --- Listing Cards Arrangement --- */
+/* This adds the gap between the cards you saw in the screenshot */
+.row {
+  margin-top: 2rem;
+  --bs-gutter-x: 1.5rem; /* Horizontal spacing */
+  --bs-gutter-y: 2rem;   /* Vertical spacing */
 }
-
-/* Social icons */
-.f-info-socials i {
-    font-size: 1.5rem;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-/* Brand */
-.f-info-brand {
-    font-weight: 500;
-}
-
-/* Links */
-.f-info-link a {
-    text-decoration: none;
-    color: #222;
-    margin: 0 10px;
-}
-
-.f-info-link a:hover {
-    text-decoration: underline;
-}
-
-/* cards */
 
 .card {
-    border: none !important;
-    margin-bottom: 2rem;
+  border: none !important;
+  background-color: transparent !important;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Smooth lift effect */
 }
 
 .card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    margin-bottom: -1rem;
+  border-radius: 1rem !important;
+  width: 100% !important;
+  height: 18rem !important; /* Fixed height for 4-column layout */
+  object-fit: cover !important; /* CRITICAL: Prevents image stretching */
 }
 
 .card-body {
-    padding : 0px !important;
-
+  padding: 0.75rem 0 !important; /* Better spacing between image and text */
 }
 
-.card-text p{
-    font-weight: 400px !important;
+.card-text b {
+  font-size: 1rem;
+  font-weight: 600 !important;
+  color: #222;
+}
 
+.price-tag {
+  color: #222222;
+  font-weight: 600;
+}
+
+.per-night {
+  color: #555;
+  font-weight: 400;
 }
 
 .listing-link {
-    text-decoration: none;
+  text-decoration: none;
+  color: inherit;
 }
 
-/*card Effect */
+/* Hover Tint Effect */
 .card-img-overlay {
-    opacity: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.card-img-overlay:hover {
-    opacity: 0.2;
+.card:hover .card-img-overlay {
+  opacity: 0.1;
+  background-color: black;
+  border-radius: 1rem;
+}
+
+/* --- Footer --- */
+.f-info {
+  background-color: #ebebeb;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #222;
+}
+
+/* --- Forms (Add New Listing Page) --- */
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 600px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  padding: 14px 16px;
+  border: 1px solid #b0b0b0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: #222222; /* Clean black border on focus */
+  box-shadow: 0 0 0 1px #222222;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+/* --- Show Page Styles --- */
+
+.show-title {
+    font-weight: 600;
+    color: #222;
+}
+
+.show-img {
+    width: 100%;
+    height: 30rem; /* Large immersive image */
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+
+.location-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.section-label {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.description-text {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Sidebar Action Card */
+.action-card {
+    position: sticky;
+    top: 6rem; /* Stays fixed as you scroll description */
     background-color: white;
+}
+
+.price-big {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.price-big .per-night {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #717171;
+}
+
+/* Buttons Styling */
+.btn-edit {
+    background-color: #222;
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-edit:hover {
+    background-color: #444;
+}
+
+.btn-delete {
+    background-color: white;
+    color: #222;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+/* Main Edit Button - Bold and Distinct */
+.btn-edit-main {
+    background: #222222;
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.btn-edit-main:hover {
+    background: #000000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Delete Button - Subtle until hovered */
+.btn-delete-outline {
+    background: transparent;
+    color: #717171;
+    border: 1px solid #717171;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-delete-outline:hover {
+    background: #fff1f0;
+    color: #ff385c;
+    border-color: #ff385c;
+}
+
+/* Sticky behavior for the Sidebar */
+.action-card {
+    background-color: white;
+}
+
+.show-img {
+    width: 100% !important;
+    height: 450px !important; /* Gives the image enough vertical space to look professional */
+    object-fit: cover !important; /* Ensures the mountain isn't squashed */
+    border-radius: 1.5rem !important;
+    margin-top: 1.5rem;
 }
 

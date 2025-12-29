@@ -1,19 +1,44 @@
 <% layout("/layouts/boilerplate.ejs") -%>
 <body>
-    <h3> ADD NEW LISTING </h3>
-    <form method="POST" action="/listings">
-        <input name="listing[title]" placeholder="Enter title" type="text" />
-        <br><br />
-        <textarea name="listing[description]" placeholder="Enter description"></textarea>
-        <br><br />
-        <input name="listing[image]" placeholder="Enter image URL/Link" type="text"/>
-        <br><br />
-        <input name="listing[price]" placeholder="Enter price" type="number"/>
-        <br><br />
-        <input name="listing[country]" placeholder="Enter country" type="text"/>
-        <br><br />
-        <input name="listing[location]" placeholder="Enter Location" type="text"/>
-        <br><br />
-        <button>ADD</button>
-    </form>
+<div class="form-container">
+    <div class="form-card">
+        <h3>Add New Listing</h3>
+        <p class="subtitle">Fill in the details to share your stay with the world.</p>
+
+        <form method="POST" action="/listings" class="listing-form">
+            <div class="input-group">
+                <label>Title</label>
+                <input name="listing[title]" placeholder="e.g. Cozy Beachfront Villa" type="text" required />
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <textarea name="listing[description]" placeholder="Describe the vibe, amenities, and area..." rows="4" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Image URL</label>
+                <input name="listing[image]" placeholder="https://images.unsplash.com/..." type="text" required />
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Price per Night</label>
+                    <input name="listing[price]" placeholder="1500" type="number" required />
+                </div>
+                <div class="input-group">
+                    <label>Country</label>
+                    <input name="listing[country]" placeholder="India" type="text" required />
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Exact Location</label>
+                <input name="listing[location]" placeholder="Goa, North Vagator" type="text" required />
+            </div>
+
+            <button type="submit" class="submit-btn">Create Listing</button>
+        </form>
+    </div>
+</div>
 </body>
