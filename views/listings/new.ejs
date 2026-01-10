@@ -1,44 +1,82 @@
 <% layout("/layouts/boilerplate.ejs") -%>
-<body>
-<div class="form-container">
-    <div class="form-card">
-        <h3>Add New Listing</h3>
-        <p class="subtitle">Fill in the details to share your stay with the world.</p>
 
-        <form method="POST" action="/listings" class="listing-form">
-            <div class="input-group">
-                <label>Title</label>
-                <input name="listing[title]" placeholder="e.g. Cozy Beachfront Villa" type="text" required />
-            </div>
+<div class="page-wrapper">
+  <div class="form-card">
 
-            <div class="input-group">
-                <label>Description</label>
-                <textarea name="listing[description]" placeholder="Describe the vibe, amenities, and area..." rows="4" required></textarea>
-            </div>
-
-            <div class="input-group">
-                <label>Image URL</label>
-                <input name="listing[image]" placeholder="https://images.unsplash.com/..." type="text" required />
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <label>Price per Night</label>
-                    <input name="listing[price]" placeholder="1500" type="number" required />
-                </div>
-                <div class="input-group">
-                    <label>Country</label>
-                    <input name="listing[country]" placeholder="India" type="text" required />
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label>Exact Location</label>
-                <input name="listing[location]" placeholder="Goa, North Vagator" type="text" required />
-            </div>
-
-            <button type="submit" class="submit-btn">Create Listing</button>
-        </form>
+    <!-- Header (design only) -->
+    <div class="form-header">
+      <h3>Add New Listing</h3>
+      <p>Fill in the details to share your stay with the world.</p>
     </div>
+
+    <form method="POST" action="/listings"
+          class="listing-form needs-validation" novalidate>
+
+      <div class="input-group">
+        <label>Title</label>
+        <input name="listing[title]"
+               placeholder="e.g. Cozy Beachfront Villa"
+               type="text" required />
+        <div class="valid-feedback"> Looks good! </div>
+      </div>
+
+      <div class="input-group">
+        <label>Description</label>
+        <textarea name="listing[description]"
+                  placeholder="Describe the vibe, amenities, and area..."
+                  rows="4" required></textarea>
+        <div class="invalid-feedback"> Please Enter a short description</div>
+        <div class="valid-feedback"> Looks good! </div>
+
+        
+
+      </div>
+
+      <div class="input-group">
+        <label>Image URL</label>
+        <input name="listing[image]"
+               placeholder="https://images.unsplash.com/..."
+               type="text" required />
+        <div class="invalid-feedback"> Give Right URL </div>
+        <div class="valid-feedback"> Looks good! </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label>Price per Night</label>
+          <input name="listing[price]"
+                 placeholder="1500"
+                 type="number"
+                  required />
+           <div class="invalid-feedback"> Enter positive Numbers </div>
+           <div class="valid-feedback"> Looks good! </div>
+        </div>
+
+        <div class="input-group">
+          <label>Country</label>
+          <input name="listing[country]"
+                 placeholder="India"
+                 type="text" required />
+           <div class="invalid-feedback"> Please Enter a valid Country. </div>
+           <div class="valid-feedback"> Looks good! </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Exact Location</label>
+        <input name="listing[location]"
+               placeholder="Goa, North Vagator"
+               type="text" required />
+        <div class="invalid-feedback">
+      Please provide a valid Exact location.
+    </div>
+    <div class="valid-feedback"> Looks good! </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Create Listing
+      </button>
+    </form>
+
+  </div>
 </div>
-</body>

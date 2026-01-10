@@ -6,36 +6,43 @@
         <h3> Edit Form </h3>
         <p class="subtitle">Edit what you want.</p>
 
-        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="listing-form needs-validation" novalidate>
             <div class="input-group">
                 <label>Title</label>
                 <input name="listing[title]" value="<%= listing.title %>" type="text"  required  />
+                <div class="invalid-feedback">You Need To Enter Title </div>
             </div>
 
             <div class="input-group">
                 <label>Description</label>
-                 <textarea name="listing[description]" rows="4" required><%= listing.description %> </textarea>
+                    <textarea name="listing[description]" rows="4" required><%= listing.description %> </textarea>
+                    <div class="invalid-feedback">You Need To Enter Description </div>
+
             </div>
 
             <div class="input-group">
                 <label>Image URL</label>
                 <input name="listing[image]" value="<%= listing.image %>" type="text" required />
+                <div class="invalid-feedback">You Need To Enter Image URL </div>
             </div>
 
             <div class="row">
                 <div class="input-group">
                     <label>Price per Night</label>
                     <input name="listing[price]" value="<%= listing.price %>" type="number" required/>
+                    <div class="invalid-feedback">You Need To Enter Price </div>
                 </div>
                 <div class="input-group">
                     <label>Country</label>
                     <input name="listing[country]" value="<%= listing.country %>" type="text" required/>
+                    <div class="invalid-feedback">You Need To Enter Country</div>
                 </div>
             </div>
 
             <div class="input-group">
                 <label>Exact Location</label>
                 <input name="listing[location]" value="<%= listing.location %>" type="text" required/>
+                <div class="invalid-feedback">You Need To Enter Location </div>
             </div>
 
             <button type="submit" class="submit-btn">Create Listing</button>
